@@ -1,4 +1,5 @@
 /* L298n motors
+Aggiunta
 
 Pilotare 1 motore DC con un modulo l928n
 
