@@ -1,8 +1,7 @@
-Luci per Aerei con Arduino
+Rover
 *******************************
 
-Sketches e librerie per la gestione delle luci di aeromodelli RC con
-microcontroller compatibili con \*arduino
+Sketches e librerie per la gestione di un mini rover con sensore a ultrasuoni per evitare ortacoli.
 
 
 Setup
@@ -19,37 +18,23 @@ Download
 ===============
 
 Download tramite git:
-    git clone git://git.andreamanni.com/aerei
+    git clone git://git.andreamanni.com/rover
 
 Per aggiornare all'ultima versione::
 
-    cd ~/aerei
+    cd ~/rover
     git pull
 
-* `Download manuale archivio <https://git.andreamanni.com/web?p=aerei;a=snapshot;h=HEAD;sf=tgz>`_
-* `Browse on line <https://aerei.piffa.net/repo/>`_
-* `Interfaccia git Web <https://git.andreamanni.com/web?p=aerei>`_
-* `Foum di Discussione <https://forum.piffa.net/viewforum.php?f=4&sid=aef380599d890d6e7b9f92743fab9d7e>`_
+* `Download manuale archivio <https://git.andreamanni.com/web?p=rover;a=snapshot;h=HEAD;sf=tgz>`_
+* `Interfaccia git Web <https://git.andreamanni.com/web?p=rover>`_
+* `Wiki <http://wiki.piffa.net/index.php/Mini_Rover>`_ 
+* `Foum di Discussione <https://forum.piffa.net/viewtopic.php?f=5&t=431>`_
    
-Libreria
-------------
-
-La sola libreria Common contenete gli oggetti base puo' essere scaricata direttamente nella vostra cartella libraries da::
-
-    git clone git://git.andreamanni.com/common
-
-* `Download manuale archivio <https://git.andreamanni.com/web?p=common;a=snapshot;h=HEAD;sf=tgz>`__
-* `Browse on line <https://aerei.piffa.net/repo/libraries/common/>`__
-* `Interfaccia git Web <https://git.andreamanni.com/web?p=common>`__
-
 
 Links
 =========
-Risorse utili per utilizzare Arduino:
+Risorse utili:
 
 * Per poter programmare le schede Arduino: `Arduino IDE <https://www.arduino.cc/en/Main/Software#>`_
 * Testi consigliati: https://lab.piffa.net/testi.html
 * Risorse online: http://wiki.piffa.net/index.php/Guide
-* Risorse di Andrea: https://lab.piffa.net/
-    * Wiki: http://wiki.piffa.net/
-    * Forum: https://forum.piffa.net/
