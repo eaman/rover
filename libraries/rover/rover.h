@@ -13,41 +13,17 @@ Licenza:    GPLv3
 #ifndef rover_h
 #define rover_h
 
-//////////////////////
-// OBJ
+// Global vars
 
 
-class engine {
-// Gestione di un singolo motore
-private:
-    byte enablePIN1;
-    byte enablePIN2;
-    byte min;   // Minimo per partire
-    byte val;   // 8bit PWM
-
-public:
-    Engine (byte PIN1, byte PIN2, byte PINPWM);
-    void Forward ();
-    void Backward ();
-    void SetSpeed (); // imposta un valore preciso per il PWM
-
-}
-
-class motors {
-// classe composta da due engines
-// Composition is better than inheritance here
-
-public:
-    motors (engine enginesx, engine enginedx) {
-    void Forward ();
-    void Backward ();
-    void TurnLeft ();
-    void TurnRight ();
-    void TurnU ();
-}
-}
-//////////////////////
 // Funzioni
 
+void abilita() ;
+void forwardA() ;
+void backwardA() ;
+void stopA() ;
+void forwardB() ;
+void backwardB() ;
+void stopB() ;
 
 #endif
