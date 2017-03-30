@@ -1,0 +1,10 @@
+ToDO
+====
+
+
+Vedere come implemetare il controllo di presenza di ostacoli laterali:
+
+* Un funzione "check" type boolean per l'ultrasuoni che riotorna 0/1 per la presenza di un oggetto
+* due funzione turnSX / turnDX che ruotano il servo, eseguono check, ritornano
+se libero
+* Nella FSM decidere / prevedere da che parte controllare (es spigolo, due rotazioni consecutive che si annullano).
