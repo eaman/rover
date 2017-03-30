@@ -28,7 +28,7 @@ Servo myservo;  // create servo object to control a servo
 int pos = 0;    // variable to store the servo position 
 const byte servo =9 ;
 const byte middle = 90; // Centratura servo
-const int pausa = 1000; // Centratura servo
+const int spausa = 30; // Pausa movimenti servo
  
 void setup() 
 { 
@@ -41,13 +41,37 @@ void setup()
 void loop() 
 { 
 // Turn DX
-    myservo.write(170);
-    delay(pausa);     
-    myservo.write(middle);              
+    turnDX();
     delay(1000);     
+
+    turnMiddle();
+    delay(1000);     
+
 // Turn SX
-    myservo.write(10);
-    delay(pausa);      
-    myservo.write(middle);              
+    turnSX();
+    delay(1000);     
+
+    turnMiddle();
     delay(1000);     
 } 
+
+// Functions
+
+void turnDX() {
+    // TurnDX
+    myservo.write(170);
+    delay(spausa);     
+}
+
+void turnSX() {
+    // TurnSX
+    myservo.write(10);
+    delay(spausa);     
+}
+
+void turnMiddle() {
+    // TurnDX
+    myservo.write(middle);
+    delay(spausa);     
+}
+
