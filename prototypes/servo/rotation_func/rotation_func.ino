@@ -29,12 +29,16 @@ int pos = 0;    // variable to store the servo position
 const byte servo =9 ;
 const byte middle = 90; // Centratura servo
 const int spausa = 30; // Pausa movimenti servo
+const byte left = 170;
+const byte right = 10;
  
 void setup() 
 { 
   myservo.attach(servo);  // attaches the servo on pin 9 to the servo object 
-    myservo.write(middle);              // tell servo to go to position in variable 'pos' 
-    delay(2000);
+
+  // Centratura iniziale
+  myservo.write(middle);              // tell servo to go to position in variable 'pos' 
+  delay(2000);
 } 
  
  
@@ -48,24 +52,24 @@ void loop()
     delay(1000);     
 
 // Turn SX
-    turnSX();
-    delay(1000);     
-
-    turnMiddle();
-    delay(1000);     
+      turnSX();
+      delay(1000);     
+  
+      turnMiddle();
+      delay(1000);     
 } 
 
 // Functions
 
 void turnDX() {
     // TurnDX
-    myservo.write(170);
+    myservo.write(right);
     delay(spausa);     
 }
 
 void turnSX() {
     // TurnSX
-    myservo.write(10);
+    myservo.write(left);
     delay(spausa);     
 }
 
