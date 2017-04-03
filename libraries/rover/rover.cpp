@@ -37,7 +37,7 @@ void abilita() {
 }
 
 
-// MotorB
+// MotorA
 void forwardA() {
     // Avanzamento motore
     digitalWrite(in1,LOW);
@@ -45,7 +45,21 @@ void forwardA() {
     analogWrite(enA,speedA);
 }
 
+void forwardA(byte speedA) {
+    // Avanzamento motore
+    digitalWrite(in1,LOW);
+    digitalWrite(in2,HIGH);
+    analogWrite(enA,speedA);
+}
+
 void backwardA() {
+    // Reverse motore
+    digitalWrite(in2,LOW);
+    digitalWrite(in1,HIGH);
+    analogWrite(enA,speedA);
+}
+
+void backwardA(byte speedA) {
     // Reverse motore
     digitalWrite(in2,LOW);
     digitalWrite(in1,HIGH);
@@ -65,7 +79,21 @@ void forwardB() {
     analogWrite(enB,speedB);
 }
 
+void forwardB(byte speedB) {
+    // Avanzamento motore
+    digitalWrite(in3,LOW);
+    digitalWrite(in4,HIGH);
+    analogWrite(enB,speedB);
+}
+
 void backwardB() {
+    // Reverse motore
+    digitalWrite(in4,LOW);
+    digitalWrite(in3,HIGH);
+    analogWrite(enB,speedB);
+}
+
+void backwardB(byte speedB) {
     // Reverse motore
     digitalWrite(in4,LOW);
     digitalWrite(in3,HIGH);

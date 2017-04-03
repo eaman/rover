@@ -19,11 +19,15 @@ Licenza:    GPLv3
 // Funzioni
 
 void abilita() ;
-void forwardA() ;
+void forwardA(); // speedA e' dato dalla variabile golabale speedA
+void forwardA(byte speedA); // Overloading
 void backwardA() ;
+void backwardA(byte speedA) ;
 void stopA() ;
 void forwardB() ;
+void forwardB(byte speedB) ;
 void backwardB() ;
+void backwardB(byte speedB) ;
 void stopB() ;
 
 #endif

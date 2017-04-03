@@ -53,6 +53,26 @@ void loop() {
     stopA();
     stopB();
     delay(1000);
+
+// Left
+    backwardA();
+    forwardB();
+    delay(2000);
+
+// Stop
+    stopA();
+    stopB();
+    delay(1000);
+
+// right
+    backwardB();
+    forwardA();
+    delay(2000);
+
+// Stop
+    stopA();
+    stopB();
+    delay(1000);
 }
 
 // Functions

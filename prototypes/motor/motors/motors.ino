@@ -1,5 +1,4 @@
 /* L298n motor
-Aggiunta
 
 Pilotare 2 motore DC con un modulo l928n
 Enable in PWM per settare velocita' massima
