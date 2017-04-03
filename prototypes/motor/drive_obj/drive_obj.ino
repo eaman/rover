@@ -12,7 +12,6 @@ Guida 2WD composta da 2 motori
 #include <rover.h>
 
 void setup() {
-//    abilita();
 }
 
 car macchina ;
@@ -20,31 +19,28 @@ car macchina ;
 void loop() {
 //// Avanti
     macchina.avanti();
-//    digitalWrite(in1,LOW);
-//    digitalWrite(in2,HIGH);
-//    digitalWrite(enA,HIGH);
     delay(2000);
-//// Stop
-//    car.stop();
-//    delay(1000);
-//
+// Stop
+    macchina.stop();
+    delay(1000);
+
 //// TurnSX
-//    car.giraSX();
+//    macchina.giraSX();
 //    delay(1000);
 //
 //// Indietro
-//    car.indietro();
+//    macchina.indietro();
 //    delay(2000);
 //// Stop
-//    car.stop();
+//    macchina.stop();
 //    delay(1000);
 //
 //// TurnDX
-//    car.giraDX();
+//    macchina.giraDX();
 //    delay(1000);
 //
 //// Stop
-//    car.stop();
+//    macchina.stop();
 //    delay(1000);
 }
 
