@@ -48,6 +48,17 @@ void car::avanti () {
     analogWrite(_enB,velB);
 }
 
+void car::stop () {
+// Motor A
+    digitalWrite(_in1,LOW);
+    digitalWrite(_in2,HIGH);
+    analogWrite(_enA,0);
+// Motor B
+    digitalWrite(_in3,LOW);
+    digitalWrite(_in4,HIGH);
+    analogWrite(_enB,0);
+}
+
 
 // Funzioni
 
