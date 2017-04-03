@@ -13,17 +13,42 @@ Licenza:    GPLv3
 
 #define dEBUG
 
-// Configurazione con OUTPUT digitali
 // motor one
-const int enA = 6;
-const int in1 = 7;
-const int in2 = 8;
-byte speedA = 255;
+extern int enA = 6;
+extern int in1 = 7;
+extern int in2 = 8;
+extern byte speedA = 255;
 // motor two
-const int enB = 5;
-const int in3 = 4;
-const int in4 = 3;
-byte speedB = 255;
+extern int enB = 5;
+extern int in3 = 4;
+extern int in4 = 3;
+extern byte speedB = 255;
+
+// Oggetti
+car::car () {
+// Abilita i PINs come OUTPUTS
+    pinMode(_enA, OUTPUT);
+    pinMode(_in1, OUTPUT);
+    pinMode(_in2, OUTPUT);
+    pinMode(_enB, OUTPUT);
+    pinMode(_in3, OUTPUT);
+    pinMode(_in4, OUTPUT);
+    velA = speedA;
+    velB = speedB;
+}
+
+void car::avanti () {
+// Motor A
+    digitalWrite(_in1,LOW);
+    digitalWrite(_in2,HIGH);
+    analogWrite(_enA,velA);
+// Motor B
+    digitalWrite(_in3,LOW);
+    digitalWrite(_in4,HIGH);
+    analogWrite(_enB,velB);
+}
+
+
 // Funzioni
 
 void abilita() {
