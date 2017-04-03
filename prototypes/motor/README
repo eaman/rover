@@ -12,5 +12,7 @@ La funzione forwardB / forwardA accetta una parametro tramite overloading:
 2. Si potrebbe fare la stessa cosa con un valore di default?
 2.1 Con quali differenze?
 
-3 La funzione composita drive pero' non accetta nessun parametro, implementare
+3. La funzione composita drive pero' non accetta nessun parametro, implementare
 la possibilita' che accetti la velocita' come argomento.
+
+4. Implementare delle funzioni anche per il sensore ultrasuoni e il servomotore
