@@ -1,5 +1,5 @@
 /*
-  Rover 
+  Rover
 
 Autore: Andrea Manni
 
@@ -26,10 +26,12 @@ const int in4 = 3;
 byte speedB = 255;
 
 // Servo vars
-int pos = 0;    // variable to store the servo position 
+int pos = 0;    // variable to store the servo position
 const byte servoPIN =9 ;
 const byte middle = 90; // Centratura servo
-const int spausa = 30; // Pausa movimenti servo
+const int spausa = 10; // Pausa movimenti servo
+const byte sx = 10;  // Min SX
+const byte dx = 170; // Maz DX
 Servo myservo; // Non c'e' bisogno di extern se e' dichiarato in questo scope
 
 ////////////////////////
@@ -121,15 +123,28 @@ void stopB() {
 // Servo
 void turnDX() {
     // TurnDX
-    myservo.write(170);
-}
-    
-void turnSX() {
-    // TurnSX
-    myservo.write(10);
+    while (pos < dx) {
+        myservo.write(pos++);
+        delay(spausa);
+    }
 }
 
-void turnMiddle() { 
-    // TurnDX
-    myservo.write(middle);
+void turnSX() {
+    // TurnSX
+    while (pos > sx) {
+        myservo.write(pos--);
+        delay(spausa);
+    }
+}
+
+void turnMiddle() {
+    // Middle
+    while (pos > middle) {
+        myservo.write(pos--);
+        delay(spausa);
+    }
+    while (pos < middle) {
+        myservo.write(pos++);
+        delay(spausa);
+    }
 }
