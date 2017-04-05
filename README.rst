@@ -8,10 +8,10 @@ Setup
 =======
 
 Gli sketch utilizzano la libreria common presente nella cartella
-``libraries/common/``: questa deve essere quindi inclusa tra le librerie
+``libraries/rover/``: questa deve essere quindi inclusa tra le librerie
 utilizzate. Un modo rapido per farlo e' settare nelle preferences dell'Arduino
-IDE l'intero repo ``aerei_arduino`` come cartella degli sketchbook, oppure
-copiare la cartella ``libraries/common`` dentro ``libraries`` dello sketchbook
+IDE l'intero repo ``rover`` come cartella degli sketchbook, oppure
+copiare la cartella ``libraries/rover`` dentro ``libraries`` dello sketchbook
 attuale.
 
 Download
@@ -30,6 +30,12 @@ Per aggiornare all'ultima versione::
 * `Wiki <http://wiki.piffa.net/index.php/Mini_Rover>`_ 
 * `Foum di Discussione <https://forum.piffa.net/viewtopic.php?f=5&t=431>`_
    
+
+Utilizzo
+=========
+
+I vari sketch usano la libreria ``rover`` per le funzionalita' di base, nel file ``libraries/rover/rover.cpp`` sono contenute tutte le impostazioni di PIN / variabili (a mo' di file di configurazione) utilizzate per tutte le versioni degli sketch.
+
 
 Links
 =========

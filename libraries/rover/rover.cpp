@@ -120,8 +120,37 @@ void stopB() {
     digitalWrite(enB,LOW);
 }
 
+
+// Entrambi i motori
+void avanti() {
+    // Drive ahead: funzione composita
+    forwardA() ;
+    forwardB() ;
+}
+void indietro() {
+    // Drive backward: funzione composita
+    backwardA();
+    backwardB();
+}
+void giraSX() {
+    // Gira a DX
+    forwardB() ;
+    backwardA();
+}
+void giraDX()  {
+    // Gira a DX
+    forwardA() ;
+    backwardB();
+}
+void stop()  {
+    stopA();
+    stopB();
+}
+
+
+
 // Servo
-void turnDX() {
+void servoDX() {
     // TurnDX
     while (pos < dx) {
         myservo.write(pos++);
@@ -129,7 +158,7 @@ void turnDX() {
     }
 }
 
-void turnSX() {
+void servoSX() {
     // TurnSX
     while (pos > sx) {
         myservo.write(pos--);
@@ -137,7 +166,7 @@ void turnSX() {
     }
 }
 
-void turnMiddle() {
+void servoMiddle() {
     // Middle
     while (pos > middle) {
         myservo.write(pos--);

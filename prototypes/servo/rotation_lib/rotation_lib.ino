@@ -35,18 +35,18 @@ void setup()
 
 void loop() 
 { 
-  // Turn DX
-  turnDX();
+  // servo DX
+  servoDX();
   delay(1000);     
 
-  turnMiddle();
+  servoMiddle();
   delay(1000);     
 
-  // Turn SX
-  turnSX();
+  // servo SX
+  servoSX();
   delay(1000);     
 
-  turnMiddle();
+  servoMiddle();
   delay(1000);     
 } 
 

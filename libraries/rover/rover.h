@@ -19,7 +19,7 @@ Licenza:    GPLv3
 
 // Funzioni
 
-void abilita() ;
+void abilita() ; // Abilita tutti i PIN
 void forwardA(); // speedA e' dato dalla variabile golabale speedA
 void forwardA(byte speedA); // Overloading
 void backwardA() ;
@@ -31,7 +31,15 @@ void backwardB() ;
 void backwardB(byte speedB) ;
 void stopB() ;
 
-void turnDX() ;
-void turnSX() ;
-void turnMiddle() ;
+// Entrambi i motori
+void avanti();
+void indietro();
+void giraSX();
+void giraDX() ;
+void stop() ;
+
+
+void servoDX() ;
+void servoSX() ;
+void servoMiddle() ;
 #endif
