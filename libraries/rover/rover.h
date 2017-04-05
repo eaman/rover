@@ -30,4 +30,7 @@ void backwardB() ;
 void backwardB(byte speedB) ;
 void stopB() ;
 
+void turnDX() ;
+void turnSX() ;
+void turnMiddle() ;
 #endif

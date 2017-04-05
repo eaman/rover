@@ -104,3 +104,19 @@ void stopB() {
     // Stop
     digitalWrite(enB,LOW);
 }
+
+// Servo
+void turnDX() {
+    // TurnDX
+    myservo.write(170);
+}
+    
+void turnSX() {
+    // TurnSX
+    myservo.write(10);
+}
+
+void turnMiddle() { 
+    // TurnDX
+    myservo.write(middle);
+}
