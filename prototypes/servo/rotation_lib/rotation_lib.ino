@@ -21,16 +21,10 @@
 
 
 #include <rover.h>
-#include <Servo.h> 
+#include "Servo.h" 
 
-Servo myservo;  // create servo object to control a servo 
 // a maximum of eight servo objects can be created 
 
-// Servo vars
-int pos = 0;    // variable to store the servo position 
-const byte servo =9 ;
-const byte middle = 90; // Centratura servo
-const int spausa = 30; // Pausa movimenti servo
 
 void setup() 
 { 

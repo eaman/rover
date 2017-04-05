@@ -9,6 +9,7 @@ Licenza:    GPLv3
 */
 
 #include "Arduino.h"
+#include "Servo.h" 
 
 #ifndef rover_h
 #define rover_h

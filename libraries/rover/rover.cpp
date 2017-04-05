@@ -24,8 +24,17 @@ const int enB = 5;
 const int in3 = 4;
 const int in4 = 3;
 byte speedB = 255;
-// Funzioni
 
+// Servo vars
+int pos = 0;    // variable to store the servo position 
+const byte servoPIN =9 ;
+const byte middle = 90; // Centratura servo
+const int spausa = 30; // Pausa movimenti servo
+Servo myservo; // Non c'e' bisogno di extern se e' dichiarato in questo scope
+
+////////////////////////
+// Funzioni:
+//
 void abilita() {
 // Abilita i PINs come OUTPUTS
     pinMode(enA, OUTPUT);
@@ -34,6 +43,10 @@ void abilita() {
     pinMode(enB, OUTPUT);
     pinMode(in3, OUTPUT);
     pinMode(in4, OUTPUT);
+
+
+    pinMode(servoPIN, OUTPUT);
+    myservo.attach(servoPIN);
 }
 
 
