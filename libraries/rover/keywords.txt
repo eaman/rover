@@ -1,1 +1,25 @@
-toggleRead	 		KEYWORD2	
+toggleRead	 		KEYWORD2
+abilita				KEYWORD2
+forwardA			KEYWORD2
+forwardA			KEYWORD2
+backwar				KEYWORD2
+backwardA			KEYWORD2
+stopA				KEYWORD2
+forwardB			KEYWORD2
+forwardB			KEYWORD2
+backwardB			KEYWORD2
+backwardB			KEYWORD2
+stopB				KEYWORD2
+
+turnDX				KEYWORD2
+turnSX				KEYWORD2
+turnMiddle			KEYWORD2
+myservo				KEYWORD1
+
+car				KEYWORD1
+avanti 			KEYWORD2
+indietro 		KEYWORD2
+stop 			KEYWORD2
+giraSX 			KEYWORD2
+giraDX 			KEYWORD2
+setSpeed 		KEYWORD2
