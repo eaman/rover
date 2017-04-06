@@ -38,8 +38,10 @@ void giraSX();
 void giraDX() ;
 void stop() ;
 
-
 void servoDX() ;
 void servoSX() ;
 void servoMiddle() ;
+
+boolean distanceCheck() ;
+int distanceMonitor() ;
 #endif

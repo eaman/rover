@@ -23,3 +23,7 @@ stop 			KEYWORD2
 giraSX 			KEYWORD2
 giraDX 			KEYWORD2
 setSpeed 		KEYWORD2
+
+
+distanceCheck 		KEYWORD2
+distanceMonitor 	KEYWORD2

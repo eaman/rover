@@ -13,7 +13,7 @@ Licenza:    GPLv3
 
 #define dEBUG
 
-// Configurazione con OUTPUT digitali
+// Configurazione parametri: variabili GLOBALI
 // motor one
 const int enA = 6;
 const int in1 = 7;
@@ -34,21 +34,33 @@ const byte sx = 10;  // Min SX
 const byte dx = 170; // Maz DX
 Servo myservo; // Non c'e' bisogno di extern se e' dichiarato in questo scope
 
+// Ultrasuoni
+const byte trigPIN = 11;
+const byte echoPIN= 12;
+const byte ledPIN = 13;
+long duration;
+int distance;
+const int minDistance = 10;
+
 ////////////////////////
 // Funzioni:
 //
 void abilita() {
-// Abilita i PINs come OUTPUTS
+// Abilita i PINs come OUTPUTS e attacca un servo 
+// Motors
     pinMode(enA, OUTPUT);
     pinMode(in1, OUTPUT);
     pinMode(in2, OUTPUT);
     pinMode(enB, OUTPUT);
     pinMode(in3, OUTPUT);
     pinMode(in4, OUTPUT);
-
-
+// Servo
     pinMode(servoPIN, OUTPUT);
-    myservo.attach(servoPIN);
+    myservo.attach(servoPIN); //la libreria servo deve essere sempre inclusa
+// Ultrasonic
+	pinMode(trigPIN, OUTPUT);
+    pinMode(echoPIN, INPUT);
+    pinMode(ledPIN, OUTPUT);
 }
 
 
@@ -176,4 +188,46 @@ void servoMiddle() {
         myservo.write(pos++);
         delay(spausa);
     }
+}
+
+
+// Ultrasuoni
+boolean distanceCheck() {
+// Verifica se la distanza di un oggetto e' minore di minDistance
+    digitalWrite(trigPIN, LOW);  // Prepare for ping
+    delayMicroseconds(2); //
+    digitalWrite(trigPIN, HIGH); // Send a ping
+    delayMicroseconds(10); //
+    digitalWrite(trigPIN, LOW); // Set down ping
+    duration = pulseIn(echoPIN, HIGH);
+    //distance = (duration / 2) / 29.1; // Speed is ~300m/s,
+    // so it takes ~29.1 milliseconds for a cm.
+    distance = (duration / 58.2); // Atmegas are not found of divisions
+    // Distance is half of (out + back)
+#ifdef DEBUG
+Serial.print("Distanza oggetto: ");    
+Serial.println(distance);
+#endif
+    if (distance < minDistance) {  // This is where the LED On/Off happens
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+
+int distanceMonitor() {
+// Ritorna la distanza di un oggetto in cm
+    digitalWrite(trigPIN, LOW);  // Prepare for ping
+    delayMicroseconds(2); //
+    digitalWrite(trigPIN, HIGH); // Send a ping
+    delayMicroseconds(10); //
+    digitalWrite(trigPIN, LOW); // Set down ping
+    duration = pulseIn(echoPIN, HIGH);
+    //distance = (duration / 2) / 29.1; // Speed is ~300m/s,
+    // so it takes ~29.1 milliseconds for a cm.
+    distance = (duration / 58.2); // Atmegas are not found of divisions
+    // Distance is half of (out + back)
+
+    return distance;
 }
