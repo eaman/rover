@@ -52,6 +52,7 @@ boolean distanceCheck() {
     // so it takes ~29.1 milliseconds for a cm.
     distance = (duration / 58.2); // Atmegas are not found of divisions
     // Distance is half of (out + back)
+    distance = constrain(distance,4,35);
 #ifdef DEBUG
 Serial.print("Distanza oggetto: ");    
 Serial.println(distance);
@@ -74,6 +75,7 @@ int distanceMonitor() {
     //distance = (duration / 2) / 29.1; // Speed is ~300m/s,
     // so it takes ~29.1 milliseconds for a cm.
     distance = (duration / 58.2); // Atmegas are not found of divisions
+    distance = constrain(distance,4,35);
     // Distance is half of (out + back)
 
     return distance;
