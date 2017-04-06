@@ -12,17 +12,12 @@ Codice: http://git.andreamanni.com/web?p=rove
 
 #include "rover.h"
 #include "Servo.h"
-#define dEBUG
 
 int rotPausa = 500; // Pausa per una rotazione di ~90'
 
 void setup()
 {
     abilita();
-#ifdef DEBUG
-    Serial.begin(9600);
-    Serial.println("Attivazione sketch");
-#endif
 }
 
 
@@ -46,9 +41,6 @@ void loop()
         delay(10); // Movimento minimo, per stabilizzare
         // l'input del sensore
         if (distanceCheck()) {
-#ifdef DEBUG
-Serial.println("\t ###### Ostacolo! ######");       
-#endif
             stato = check ;
         }
 
@@ -78,27 +70,15 @@ Serial.println("\t ###### Ostacolo! ######");
 // Inversione
         servoMiddle();
         stato = inversione ;
-#ifdef DEBUG
-Serial.print("Stato: ");       
-Serial.println(stato);       
-#endif
         break;
 
     case sx:
-#ifdef DEBUG
-Serial.print("Stato: ");       
-Serial.println(stato);       
-#endif
         giraSX();
         delay(giroPausa);
             stato = forward ;
         break;
 
     case dx:
-#ifdef DEBUG
-Serial.print("Stato: ");       
-Serial.println(stato);       
-#endif
         giraDX();
         delay(giroPausa);
             stato = forward ;
@@ -111,10 +91,6 @@ Serial.println(stato);
         break;
 
     case inversione:
-#ifdef DEBUG
-Serial.print("Stato: ");       
-Serial.println(stato);       
-#endif
         stop();
         indietro(); // Why not? :)
         delay(giroPausa * 1);
@@ -130,10 +106,4 @@ Serial.println(stato);
         break;
     }
 
-#ifdef DEBUG
-//Serial.print("Stato: ");       
-//Serial.println(stato);       
-//Serial.print("Distanza: ");       
-//Serial.println(distanceMonitor());       
-#endif
 }
