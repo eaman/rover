@@ -18,20 +18,20 @@ Licenza:    GPLv3
 const int enA = 6;
 const int in1 = 7;
 const int in2 = 8;
-byte speedA = 255;
+byte speedA = 120; // DX
 // motor two
 const int enB = 5;
 const int in3 = 4;
 const int in4 = 3;
-byte speedB = 255;
+byte speedB = 100;
 
 // Servo vars
 int pos = 0;    // variable to store the servo position
 const byte servoPIN =9 ;
 const byte middle = 90; // Centratura servo
 const int spausa = 10; // Pausa movimenti servo
-const byte sx = 10;  // Min SX
-const byte dx = 170; // Maz DX
+const byte sx = 30;  // Min SX
+const byte dx = 150; // Maz DX
 Servo myservo; // Non c'e' bisogno di extern se e' dichiarato in questo scope
 
 // Ultrasuoni
@@ -40,7 +40,7 @@ const byte echoPIN= 12;
 const byte ledPIN = 13;
 long duration;
 int distance;
-const int minDistance = 10;
+const int minDistance = 20;
 
 ////////////////////////
 // Funzioni:
@@ -204,6 +204,7 @@ boolean distanceCheck() {
     // so it takes ~29.1 milliseconds for a cm.
     distance = (duration / 58.2); // Atmegas are not found of divisions
     // Distance is half of (out + back)
+    distance = constrain(distance,4,35);
 #ifdef DEBUG
 Serial.print("Distanza oggetto: ");    
 Serial.println(distance);
@@ -228,6 +229,7 @@ int distanceMonitor() {
     // so it takes ~29.1 milliseconds for a cm.
     distance = (duration / 58.2); // Atmegas are not found of divisions
     // Distance is half of (out + back)
+    distance = constrain(distance,4,35);
 
     return distance;
 }

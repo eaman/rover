@@ -19,27 +19,37 @@ void setup() {
 
 
 void loop() {
+digitalWrite(13,HIGH);
+
 // Avanti
     avanti();
     delay(2000);
+
+digitalWrite(13,LOW);
+
 // Stop
     stop();
     delay(1000);
 
 // TurnSX
     giraSX();
+    delay(2000);
+
+// Stop
+    stop();
     delay(1000);
 
-// Avanti
-    avanti();
+// indietro
+    indietro();
     delay(2000);
+
 // Stop
     stop();
     delay(1000);
 
 // TurnDX
     giraDX();
-    delay(1000);
+    delay(2000);
 
 // Stop
     stop();

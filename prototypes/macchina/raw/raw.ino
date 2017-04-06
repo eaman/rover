@@ -13,7 +13,7 @@ Codice: http://git.andreamanni.com/web?p=rove
 #include "rover.h"
 #include "Servo.h"
 
-int rotPausa = 1000; // Pausa per una rotazione di ~90'
+int rotPausa = 200; // Pausa per una minima rotazione 
 
 void setup()
 {
@@ -27,9 +27,10 @@ void loop()
 // Fintanto che non ci sono ostacoli: avanti
     while (distanceCheck() == 0) {
         avanti();
+        delay(50); // Movimento minimo, per stabilizzare
+        // l'input del sensore
     }
-// Se c'e' un ostacolo: ferma e gira
-    stop();
-    giraSX;
+// Se c'e' un ostacolo: gira
+    giraDX();
     delay(rotPausa);
 }
