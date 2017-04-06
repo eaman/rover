@@ -7,14 +7,15 @@ HC-SR04 Ping distance sensor
 VCC to arduino 5v - GND to arduino GND
 
  */
-# define DEBUG
+# define dEBUG
 
 // Ultrasuoni
 const byte trig = 11;
 const byte echo = 12;
 const byte led = 13;
-long duration, distance;
-boolean allarm = 0;
+long duration;
+int distance;
+const int minDistance = 10;
 
 void setup() {
     pinMode(trig, OUTPUT);
@@ -23,36 +24,57 @@ void setup() {
 
 
     //Debug
-    Serial.begin (9600);
+#ifdef DEBUG
+Serial.begin(9600);
+#endif
+Serial.begin(9600); // Need for distanceMonitor
 }
 
 void loop() {
-if (check()) {
+if (distanceCheck()) {
     digitalWrite(led,HIGH);
 } else {
     digitalWrite(led,LOW);
 }
-
-#ifdef DEBUG
-Serial.begin(9600);
-#endif
+Serial.println(distanceMonitor());
+delay(50);
 
 }
 
-boolean check() {
+boolean distanceCheck() {
     digitalWrite(trig, LOW);  // Prepare for ping
     delayMicroseconds(2); //
     digitalWrite(trig, HIGH); // Send a ping
     delayMicroseconds(10); //
     digitalWrite(trig, LOW); // Set down ping
     duration = pulseIn(echo, HIGH);
-    distance = (duration/2) / 29.1; // Speed is ~300m/s,
+    //distance = (duration / 2) / 29.1; // Speed is ~300m/s,
     // so it takes ~29.1 milliseconds for a cm.
+    distance = (duration / 58.2); // Atmegas are not found of divisions
     // Distance is half of (out + back)
-    if (distance < 5) {  // This is where the LED On/Off happens
+#ifdef DEBUG
+Serial.print("Distanza oggetto: ");    
+Serial.println(distance);
+#endif
+    if (distance < minDistance) {  // This is where the LED On/Off happens
         return 1;
     }
     else {
         return 0;
     }
+}
+
+int distanceMonitor() {
+    digitalWrite(trig, LOW);  // Prepare for ping
+    delayMicroseconds(2); //
+    digitalWrite(trig, HIGH); // Send a ping
+    delayMicroseconds(10); //
+    digitalWrite(trig, LOW); // Set down ping
+    duration = pulseIn(echo, HIGH);
+    //distance = (duration / 2) / 29.1; // Speed is ~300m/s,
+    // so it takes ~29.1 milliseconds for a cm.
+    distance = (duration / 58.2); // Atmegas are not found of divisions
+    // Distance is half of (out + back)
+
+    return distance;
 }
